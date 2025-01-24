@@ -1,0 +1,2532 @@
+<html><head><base href>.</head><body>
+<audio id="gunTriggerSound" preload="auto">
+    <source src="gun-trigger-click-without-bullet-fascinatedsound-2-2-00-00.mp3" type="audio/mp3">
+</audio>
+
+    <div class="custom-cursor"></div>
+    
+    <div class="scissors-tool">
+        <button id="scissors-button">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 8C12 9.65685 10.6569 11 9 11C7.34315 11 6 9.65685 6 8C6 6.34315 7.34315 5 9 5C10.6569 5 12 6.34315 12 8Z" stroke="#999" stroke-width="2"/>
+                <path d="M12 22C12 23.6569 10.6569 25 9 25C7.34315 25 6 23.6569 6 22C6 20.3431 7.34315 19 9 19C10.6569 19 12 20.3431 12 22Z" stroke="#999" stroke-width="2"/>
+                <path d="M10 9L24 19" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10 21L24 11" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="key-tool">
+        <button id="key-button">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Key head (circle) -->
+                <circle cx="10" cy="10" r="5" stroke="#999" stroke-width="2.5"/>
+                <!-- Inner circle detail -->
+                <circle cx="10" cy="10" r="2" stroke="#999" stroke-width="2"/>
+                <!-- Key shaft -->
+                <path d="M13 13L22 22" stroke="#999" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- Key teeth -->
+                <path d="M19 19L19 22" stroke="#999" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M22 19L22 22" stroke="#999" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="switches-tool">
+    </div>
+
+    <div class="advancements-tool">
+        <button id="advancements-button">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 4L18.5 11.5L27 12.5L21 18L23 26L15 22L7 26L9 18L3 12.5L11.5 11.5L15 4Z" stroke="#999" stroke-width="2"/>
+            </svg>
+        </button>
+        <button id="mod-loader-button">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 15L25 15M15 5L15 25" stroke="#999" stroke-width="2"/>
+            </svg>
+        </button>
+    </div>
+
+    <div id="advancements-panel" class="advancements-panel hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h2 style="margin: 0;">Advancements</h2>
+            <button class="close-button">×</button>
+        </div>
+        <div class="advancement" id="orbital-lightning">
+            <div class="advancement-icon">⚡</div>
+            <div class="advancement-details">
+                <h3>Orbital Lightning</h3>
+                <p>Set stiffness to 1.0</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="dice-king">
+            <div class="advancement-icon">🎲</div>
+            <div class="advancement-details">
+                <h3>Dice King</h3>
+                <p>Roll any dice</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="dice-master">
+            <div class="advancement-icon">👑</div>
+            <div class="advancement-details">
+                <h3>Dice Master</h3>
+                <p>Roll any dice 1,000 times</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="blowing-winter">
+            <div class="advancement-icon">🌪️</div>
+            <div class="advancement-details">
+                <h3>Blowing Winter</h3>
+                <p>Set wind strength to 2.0</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="uh-oh">
+            <div class="advancement-icon">💨</div>
+            <div class="advancement-details">
+                <h3>Uh oh.</h3>
+                <p>Set air resistance to 1.0</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="fashion-designer">
+            <div class="advancement-icon">👔</div>
+            <div class="advancement-details">
+                <h3>Fashion Designer</h3>
+                <p>Change anything in the properties</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="pride-month">
+            <div class="advancement-icon">🌈</div>
+            <div class="advancement-details">
+                <h3>Pride Month</h3>
+                <p>Change the line type to rainbow</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="cloth-reset">
+            <div class="advancement-icon">🔄</div>
+            <div class="advancement-details">
+                <h3>Cloth?</h3>
+                <p>Reset the cloth</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="secret-fashion">
+            <div class="advancement-icon">🎨</div>
+            <div class="advancement-details">
+                <h3>Secret Fashion</h3>
+                <p>Find the secret cloth color</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="cut-cut">
+            <div class="advancement-icon">✂️</div>
+            <div class="advancement-details">
+                <h3>Cut Cut</h3>
+                <p>Cut 1 cloth part</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="security-100">
+            <div class="advancement-icon">🔒</div>
+            <div class="advancement-details">
+                <h3>Security Lv. 100</h3>
+                <p>Lock 1 cloth part</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="jello">
+            <div class="advancement-icon">🍮</div>
+            <div class="advancement-details">
+                <h3>Jello</h3>
+                <p>Set bounce to 1.0</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="airplane-mode">
+            <div class="advancement-icon">✈️</div>
+            <div class="advancement-details">
+                <h3>Airplane Mode</h3>
+                <p>Set turbulence to 1.0</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="thick">
+            <div class="advancement-icon">📏</div>
+            <div class="advancement-details">
+                <h3>THICK</h3>
+                <p>Set line width to 10.0</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="white-cube">
+            <div class="advancement-icon">⬜</div>
+            <div class="advancement-details">
+                <h3>White Cube</h3>
+                <p>The perfect cube</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="sponge">
+            <div class="advancement-icon">🧽</div>
+            <div class="advancement-details">
+                <h3>Sponge</h3>
+                <p>Make it bouncy and heavy</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="erasement">
+            <div class="advancement-icon">❌</div>
+            <div class="advancement-details">
+                <h3>Erasement.</h3>
+                <p>Reset cloth 50 times</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="rainbow-unstoppable">
+            <div class="advancement-icon">🌈</div>
+            <div class="advancement-details">
+                <h3>The Rainbow is Not Stoppable</h3>
+                <p>Switch line type to rainbow and try to change color</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="where-is-it">
+            <div class="advancement-icon">👻</div>
+            <div class="advancement-details">
+                <h3>Where is it...</h3>
+                <p>Change transparency to 1.0</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="lunatic">
+            <div class="advancement-icon">😵</div>
+            <div class="advancement-details">
+                <h3>Lunatic</h3>
+                <p>Set shiver to 1.0</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+        <div class="advancement" id="dance-party">
+            <div class="advancement-icon">🕺</div>
+            <div class="advancement-details">
+                <h3>Dance Party Yeah!</h3>
+                <p>Set pulse to 1.0</p>
+            </div>
+            <div class="advancement-status">❌</div>
+        </div>
+    </div>
+
+    <div id="mod-loader-panel" class="mod-loader-panel hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+            <h2 style="margin: 0;">Mod Loader</h2>
+            <button class="close-button">×</button>
+        </div>
+        <div class="mod-list">
+            <div class="mod" id="tearing-mod">
+                <div class="mod-icon">🔪</div>
+                <div class="mod-details">
+                    <h3>Tearing</h3>
+                    <p>Adds ability to tear cloth when stretched</p>
+                </div>
+                <button class="mod-action-button" onclick="toggleMod('tearing')">Install</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats-panel">
+        <button class="collapse-button"><span>❮</span></button>
+        <div class="tab-container">
+            <button class="tab-button active" data-tab="physics">Physics</button>
+            <button class="tab-button" data-tab="modifiers">Modifiers</button>
+            <button class="tab-button" data-tab="properties">Properties</button>
+        </div>
+        <button id="reset-button">Reset Cloth</button>
+        <button id="reset-physics-button">Reset Physics</button>
+        <button id="reset-modifiers-button">Reset Modifiers</button>
+        
+        <div id="physics-tab" class="tab-content active">
+            <div class="tab-header">
+                <h3 style="margin: 0;">Physics Properties</h3>
+                <button class="dice-icon" onclick="randomizePhysics()">
+                    <img src="dice.png" alt="Randomize Physics">
+                </button>
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Stiffness <span id="stiffness-value" class="value-display">0.8</span></label>
+                    <button class="dice-icon" onclick="updateSlider('stiffness-slider', getRandomValue(0.1, 1))">
+                        <img src="dice.png" alt="Randomize Stiffness">
+                    </button>
+                </div>
+                <input type="range" id="stiffness-slider" min="0.1" max="1" step="0.1" value="0.8">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Gravity <span id="gravity-value" class="value-display">0.5</span></label>
+                    <button class="dice-icon" onclick="updateSlider('gravity-slider', getRandomValue(0, 2))">
+                        <img src="dice.png" alt="Randomize Gravity">
+                    </button>
+                </div>
+                <input type="range" id="gravity-slider" min="0" max="2" step="0.1" value="0.5">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Friction <span id="friction-value" class="value-display">0.99</span></label>
+                    <button class="dice-icon" onclick="updateSlider('friction-slider', getRandomValue(0.8, 0.999, 3))">
+                        <img src="dice.png" alt="Randomize Friction">
+                    </button>
+                </div>
+                <input type="range" id="friction-slider" min="0.8" max="0.999" step="0.001" value="0.99">
+            </div>
+        </div>
+
+        <div id="modifiers-tab" class="tab-content">
+            <div class="tab-header">
+                <h3 style="margin: 0;">Modifiers</h3>
+                <button class="dice-icon" onclick="randomizeModifiers()">
+                    <img src="dice.png" alt="Randomize Modifiers">
+                </button>
+            </div>
+            <!-- Add this after the modifiers tab header -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search modifiers..." id="modifier-search">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Wind Strength <span id="wind-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('wind-slider', getRandomValue(-2, 2))">
+                        <img src="dice.png" alt="Randomize Wind Strength">
+                    </button>
+                </div>
+                <input type="range" id="wind-slider" min="-2" max="2" step="0.1" value="0">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Turbulence <span id="turbulence-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('turbulence-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Turbulence">
+                    </button>
+                </div>
+                <input type="range" id="turbulence-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Bounce <span id="bounce-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('bounce-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Bounce">
+                    </button>
+                </div>
+                <input type="range" id="bounce-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Mass <span id="mass-value" class="value-display">1</span></label>
+                    <button class="dice-icon" onclick="updateSlider('mass-slider', getRandomValue(0.1, 3))">
+                        <img src="dice.png" alt="Randomize Mass">
+                    </button>
+                </div>
+                <input type="range" id="mass-slider" min="0.1" max="3" step="0.1" value="1">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Elasticity <span id="elasticity-value" class="value-display">1</span></label>
+                    <button class="dice-icon" onclick="updateSlider('elasticity-slider', getRandomValue(0.1, 2))">
+                        <img src="dice.png" alt="Randomize Elasticity">
+                    </button>
+                </div>
+                <input type="range" id="elasticity-slider" min="0.1" max="2" step="0.1" value="1">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Air Resistance <span id="air-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('air-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Air Resistance">
+                    </button>
+                </div>
+                <input type="range" id="air-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Rotation Force <span id="rotation-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('rotation-slider', getRandomValue(-1, 1))">
+                        <img src="dice.png" alt="Randomize Rotation Force">
+                    </button>
+                </div>
+                <input type="range" id="rotation-slider" min="-1" max="1" step="0.1" value="0">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Sway Force <span id="sway-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('sway-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Sway Force">
+                    </button>
+                </div>
+                <input type="range" id="sway-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Tension <span id="tension-value" class="value-display">1</span></label>
+                    <button class="dice-icon" onclick="updateSlider('tension-slider', getRandomValue(0.1, 2))">
+                        <img src="dice.png" alt="Randomize Tension">
+                    </button>
+                </div>
+                <input type="range" id="tension-slider" min="0.1" max="2" step="0.1" value="1">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Pulse <span id="pulse-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('pulse-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Pulse">
+                    </button>
+                </div>
+                <input type="range" id="pulse-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Swirl <span id="swirl-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('swirl-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Swirl">
+                    </button>
+                </div>
+                <input type="range" id="swirl-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Shiver <span id="shiver-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('shiver-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Shiver">
+                    </button>
+                </div>
+                <input type="range" id="shiver-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Twist <span id="twist-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('twist-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Twist">
+                    </button>
+                </div>
+                <input type="range" id="twist-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+            
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Wave <span id="wave-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('wave-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Wave">
+                    </button>
+                </div>
+                <input type="range" id="wave-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Noise <span id="noise-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('noise-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Noise">
+                    </button>
+                </div>
+                <input type="range" id="noise-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Chaos <span id="chaos-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('chaos-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Chaos">
+                    </button>
+                </div>
+                <input type="range" id="chaos-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+
+            <!-- New sliders for vortex, spiral, ripple, and orbit -->
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Vortex <span id="vortex-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('vortex-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Vortex">
+                    </button>
+                </div>
+                <input type="range" id="vortex-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Spiral <span id="spiral-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('spiral-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Spiral">
+                    </button>
+                </div>
+                <input type="range" id="spiral-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Ripple <span id="ripple-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('ripple-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Ripple">
+                    </button>
+                </div>
+                <input type="range" id="ripple-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Orbit <span id="orbit-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('orbit-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Orbit">
+                    </button>
+                </div>
+                <input type="range" id="orbit-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+        </div>
+        
+        <div id="properties-tab" class="tab-content">
+            <div class="tab-header">
+                <h3 style="margin: 0;">Properties</h3>
+                <button class="dice-icon" onclick="randomizeProperties()">
+                    <img src="dice.png" alt="Randomize Properties">
+                </button>
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Cloth Width <span id="cloth-width-value" class="value-display">20</span></label>
+                    <button class="dice-icon" onclick="updateSlider('cloth-width-slider', Math.floor(getRandomValue(5, 40)))">
+                        <img src="dice.png" alt="Randomize Cloth Width">
+                    </button>
+                </div>
+                <input type="range" id="cloth-width-slider" min="5" max="40" step="1" value="20">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Cloth Height <span id="cloth-height-value" class="value-display">20</span></label>
+                    <button class="dice-icon" onclick="updateSlider('cloth-height-slider', Math.floor(getRandomValue(5, 40)))">
+                        <img src="dice.png" alt="Randomize Cloth Height">
+                    </button>
+                </div>
+                <input type="range" id="cloth-height-slider" min="5" max="40" step="1" value="20">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Point Spacing <span id="spacing-value" class="value-display">20</span></label>
+                    <button class="dice-icon" onclick="updateSlider('spacing-slider', Math.floor(getRandomValue(10, 40)))">
+                        <img src="dice.png" alt="Randomize Point Spacing">
+                    </button>
+                </div>
+                <input type="range" id="spacing-slider" min="10" max="40" step="1" value="20">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Line Width <span id="line-width-value" class="value-display">2</span></label>
+                    <button class="dice-icon" onclick="updateSlider('line-width-slider', getRandomValue(1, 10))">
+                        <img src="dice.png" alt="Randomize Line Width">
+                    </button>
+                </div>
+                <input type="range" id="line-width-slider" min="1" max="10" step="0.5" value="2">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Transparency <span id="transparency-value" class="value-display">0</span></label>
+                    <button class="dice-icon" onclick="updateSlider('transparency-slider', getRandomValue(0, 1))">
+                        <img src="dice.png" alt="Randomize Transparency">
+                    </button>
+                </div>
+                <input type="range" id="transparency-slider" min="0" max="1" step="0.1" value="0">
+            </div>
+            <div class="slider-container">
+                <div class="slider-header">
+                    <label>Line Type</label>
+                </div>
+                <select id="line-type-selector" class="line-type-select">
+                    <option value="default">Default</option>
+                    <option value="zigzag">Zig Zag</option>
+                    <option value="dotted">Dotted</option>
+                    <option value="dashed">Dashed</option>
+                    <option value="wavy">Wavy</option>
+                    <option value="double">Double Line</option>
+                    <option value="gradient">Gradient</option>
+                    <option value="neon">Neon</option>
+                    <option value="rainbow">Rainbow</option>
+                </select>
+            </div>
+            <div style="margin: 10px 0;">
+                <label>Cloth Color</label>
+                <input type="color" id="cloth-color" value="#ffffff" style="width: 100%; margin-top: 5px;">
+            </div>
+        </div>
+    </div>
+    <canvas id="canvas"></canvas>
+
+<script>
+let installedMods = new Set();
+let tearingEnabled = false; 
+
+function updateSlider(sliderId, value) {
+    const slider = document.getElementById(sliderId);
+    if (slider) {
+        slider.value = value;
+        // Trigger the input event to update the display
+        const event = new Event('input', {
+            bubbles: true,
+            cancelable: true,
+        });
+        slider.dispatchEvent(event);
+    }
+}
+
+// Helper function for random values
+function getRandomValue(min, max, precision = 1) {
+    const value = Math.random() * (max - min) + min;
+    return Number(value.toFixed(precision));
+}
+
+// Function to randomize physics settings
+function randomizePhysics() {
+    updateSlider('stiffness-slider', getRandomValue(0.1, 1));
+    updateSlider('gravity-slider', getRandomValue(0, 2));
+    updateSlider('friction-slider', getRandomValue(0.8, 0.999, 3));
+}
+
+// Function to randomize modifiers
+function randomizeModifiers() {
+    updateSlider('wind-slider', getRandomValue(-2, 2));
+    updateSlider('turbulence-slider', getRandomValue(0, 1));
+    updateSlider('bounce-slider', getRandomValue(0, 1));
+    updateSlider('mass-slider', getRandomValue(0.1, 3));
+    updateSlider('elasticity-slider', getRandomValue(0.1, 2));
+    updateSlider('air-slider', getRandomValue(0, 1));
+    updateSlider('rotation-slider', getRandomValue(-1, 1));
+    updateSlider('sway-slider', getRandomValue(0, 1));
+    updateSlider('tension-slider', getRandomValue(0.1, 2));
+    updateSlider('pulse-slider', getRandomValue(0, 1));
+    updateSlider('swirl-slider', getRandomValue(0, 1));
+    updateSlider('shiver-slider', getRandomValue(0, 1));
+    updateSlider('twist-slider', getRandomValue(0, 1));
+    // New randomize effects
+    updateSlider('vortex-slider', getRandomValue(0, 1));
+    updateSlider('spiral-slider', getRandomValue(0, 1));
+    updateSlider('ripple-slider', getRandomValue(0, 1));
+    updateSlider('orbit-slider', getRandomValue(0, 1));
+}
+
+// Function to randomize properties
+function randomizeProperties() {
+    updateSlider('cloth-width-slider', Math.floor(getRandomValue(5, 40)));
+    updateSlider('cloth-height-slider', Math.floor(getRandomValue(5, 40)));
+    updateSlider('spacing-slider', Math.floor(getRandomValue(10, 40)));
+    updateSlider('line-width-slider', getRandomValue(1, 10));
+    updateSlider('transparency-slider', getRandomValue(0, 1));
+}
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+// Set canvas size
+canvas.width = window.innerWidth * 0.8;
+canvas.height = window.innerHeight * 0.8;
+
+// Point class for cloth vertices
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.oldX = x;
+        this.oldY = y;
+        this.pinned = false;
+    }
+
+    update() {
+        if (this.pinned) return;
+
+        const vx = (this.x - this.oldX) * friction;
+        const vy = (this.y - this.oldY) * friction;
+
+        this.oldX = this.x;
+        this.oldY = this.y;
+
+        // Apply wind and turbulence
+        const windEffect = windStrength + Math.sin(time * 0.1 + this.y * 0.1) * turbulence;
+        this.x += windEffect;
+
+        // Apply air resistance
+        const speed = Math.sqrt(vx * vx + vy * vy);
+        const dragForce = speed * airResistance;
+        this.x += vx * (1 - dragForce);
+        this.y += vy * (1 - dragForce);
+
+        // Apply gravity with mass
+        this.y += gravity * mass;
+
+        // Bounce off bottom with elasticity
+        if (this.y > canvas.height) {
+            this.y = canvas.height;
+            this.oldY = this.y + (this.y - this.oldY) * bounce * elasticity;
+        }
+
+        // Add rotation effect
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const dx = this.x - centerX;
+        const dy = this.y - centerY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const angle = Math.atan2(dy, dx);
+        
+        // Apply rotation force
+        this.x += Math.cos(angle + Math.PI / 2) * rotationForce * (dist * 0.01);
+        this.y += Math.sin(angle + Math.PI / 2) * rotationForce * (dist * 0.01);
+        
+        // Apply sway force
+        this.x += Math.sin(time * 2) * swayForce;
+
+        // Add pulse effect
+        if (pulse > 0) {
+            const pulseEffect = Math.sin(time * 5) * pulse * 2;
+            this.x += (this.x - canvas.width/2) * pulseEffect * 0.01;
+            this.y += (this.y - canvas.height/2) * pulseEffect * 0.01;
+        }
+
+        // Add swirl effect
+        if (swirl > 0) {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const dx = this.x - centerX;
+            const dy = this.y - centerY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const angle = Math.atan2(dy, dx) + (swirl * 0.1);
+            this.x += Math.cos(angle) * distance * 0.01;
+            this.y += Math.sin(angle) * distance * 0.01;
+        }
+
+        // Add shiver effect
+        if (shiver > 0) {
+            this.x += (Math.random() - 0.5) * shiver * 2;
+            this.y += (Math.random() - 0.5) * shiver * 2;
+        }
+
+        // Add twist effect (modify the existing twist implementation)
+        if (twist > 0) {
+            const centerY = canvas.height / 2;
+            const distanceFromCenter = Math.abs(this.y - centerY);
+            const twistAmount = (twist * 0.1) * Math.sin(distanceFromCenter * 0.02 + time * 0.1);
+            this.x += twistAmount * 5; // Increased the multiplier for more visible effect
+        }
+
+        // Add wave effect
+        if (wave > 0) {
+            this.y += Math.sin(time * 3 + this.x * 0.1) * wave * 5;
+        }
+
+        // Add noise effect
+        if (noise > 0) {
+            this.x += (Math.random() - 0.5) * noise * 2;
+            this.y += (Math.random() - 0.5) * noise * 2;
+        }
+
+        // Add chaos effect
+        if (chaos > 0) {
+            const angle = Math.atan2(this.y - canvas.height/2, this.x - canvas.width/2);
+            this.x += Math.cos(angle + time) * chaos * 2;
+            this.y += Math.sin(angle + time) * chaos * 2;
+        }
+
+        // Add vortex effect
+        if (vortex > 0) {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const dx = this.x - centerX;
+            const dy = this.y - centerY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const angle = Math.atan2(dy, dx) + vortex * 0.1;
+            this.x += (centerX + Math.cos(angle) * dist - this.x) * 0.05;
+            this.y += (centerY + Math.sin(angle) * dist - this.y) * 0.05;
+        }
+
+        // Add spiral effect
+        if (spiral > 0) {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const dx = this.x - centerX;
+            const dy = this.y - centerY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const spiralSpeed = spiral * 0.1;
+            this.x += dy * spiralSpeed;
+            this.y -= dx * spiralSpeed;
+        }
+
+        // Add ripple effect
+        if (ripple > 0) {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const dx = this.x - centerX;
+            const dy = this.y - centerY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const amplitude = ripple * 10;
+            const frequency = time * 2;
+            const offset = Math.sin(frequency - dist * 0.05) * amplitude;
+            const angle = Math.atan2(dy, dx);
+            this.x += Math.cos(angle) * offset;
+            this.y += Math.sin(angle) * offset;
+        }
+
+        // Add orbit effect
+        if (orbit > 0) {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const dx = this.x - centerX;
+            const dy = this.y - centerY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const orbitSpeed = orbit * 0.05;
+            const angle = Math.atan2(dy, dx) + orbitSpeed;
+            this.x = centerX + dx * Math.cos(orbitSpeed) - dy * Math.sin(orbitSpeed);
+            this.y = centerY + dx * Math.sin(orbitSpeed) + dy * Math.cos(orbitSpeed);
+        }
+    }
+}
+
+// Cloth simulation parameters
+let clothWidth = 20;
+let clothHeight = 20;
+let spacing = 20;
+let stiffness = 0.8;
+let gravity = 0.5;
+let friction = 0.99;
+let windStrength = 0;
+let turbulence = 0;
+let bounce = 0;
+let mass = 1;
+let elasticity = 1;
+let airResistance = 0;
+let transparency = 0; // New variable for transparency
+let time = 0;
+let clothColor = '#ffffff';
+let lineWidth = 2;
+
+// New variables for line type
+let currentLineType = 'default';
+let animationTime = 0;
+
+// New variables for advancements
+let resetCount = 0;
+let clothVisible = true;
+
+// New variables for modifiers
+let rotationForce = 0;
+let swayForce = 0;
+let tension = 1;
+
+// New variables for pulse, swirl, shiver, twist, wave, noise, chaos
+let pulse = 0;
+let swirl = 0;
+let shiver = 0;
+let twist = 0; // Added definition for twist variable
+let wave = 0;
+let noise = 0;
+let chaos = 0;
+
+// New variables for vortex, spiral, ripple, orbit
+let vortex = 0;
+let spiral = 0;
+let ripple = 0;
+let orbit = 0;
+
+// Create points array
+const points = [];
+const initialPositions = [];
+
+// Create points
+for (let y = 0; y < clothHeight; y++) {
+    for (let x = 0; x < clothWidth; x++) {
+        const p = new Point(
+            canvas.width/2 - (clothWidth * spacing)/2 + x * spacing,
+            canvas.height/2 - (clothHeight * spacing)/2 + y * spacing  // Changed from canvas.height/3 to canvas.height/2
+        );
+        if (y === 0) p.pinned = true;
+        points.push(p);
+        initialPositions.push({ x: p.x, y: p.y });
+    }
+}
+
+// Function to check for Sponge achievement
+function checkSpongeAchievement() {
+    if (elasticity === 2.0 && mass === 3.0 && bounce === 1.0 && !advancements.sponge) {
+        completeAdvancement('sponge');
+    }
+}
+
+// Tab system
+function showTab(tabName) {
+    document.querySelectorAll('.tab-content').forEach(content => {
+        content.style.display = 'none';
+    });
+    document.querySelectorAll('.tab-button').forEach(button => {
+        button.classList.remove('active');
+    });
+    document.getElementById(`${tabName}-tab`).style.display = 'block';
+    document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+}
+
+// Initialize tabs
+document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', (e) => {
+        playGunTriggerSound();
+        showTab(e.target.dataset.tab);
+    });
+});
+
+// Show physics tab by default
+showTab('physics');
+
+// Custom cursor
+const cursor = document.querySelector('.custom-cursor');
+
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+// Make cursor slightly bigger when clicking
+document.addEventListener('mousedown', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+});
+
+document.addEventListener('mouseup', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+});
+
+// Show default cursor on interactive elements
+document.querySelectorAll('button, input[type="range"], input[type="color"]').forEach(element => {
+    element.addEventListener('mouseover', () => {
+        cursor.style.opacity = '0';
+    });
+    element.addEventListener('mouseout', () => {
+        cursor.style.opacity = '1';
+    });
+});
+
+// Ripple effect for buttons
+function createRipple(event) {
+    const button = event.currentTarget;
+
+    // Remove existing ripple elements
+    const ripples = button.getElementsByClassName("ripple");
+    Array.from(ripples).forEach(ripple => ripple.remove());
+
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    const rect = button.getBoundingClientRect();
+    
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - rect.left - radius}px`;
+    circle.style.top = `${event.clientY - rect.top - radius}px`;
+    
+    circle.classList.add("ripple");
+    button.appendChild(circle);
+}
+
+// Add ripple effect to all buttons
+document.querySelectorAll('.tab-button, #reset-button, #reset-physics-button, #reset-modifiers-button').forEach(button => {
+    button.addEventListener('click', createRipple);
+});
+
+// Setup sliders
+const setupSlider = (id, valueId, variable, callback) => {
+    const slider = document.getElementById(id);
+    const value = document.getElementById(valueId);
+    slider.addEventListener('input', (e) => {
+        const val = parseFloat(e.target.value);
+        value.textContent = val.toFixed(1);
+        if (callback) callback(val);
+    });
+};
+
+setupSlider('stiffness-slider', 'stiffness-value', stiffness, val => {
+    stiffness = val;
+    // Check for Orbital Lightning advancement
+    if (val === 1.0 && !advancements.orbitalLightning) {
+        completeAdvancement('orbitalLightning');
+    }
+});
+setupSlider('gravity-slider', 'gravity-value', gravity, val => gravity = val);
+setupSlider('friction-slider', 'friction-value', friction, val => {
+    friction = val;
+});
+setupSlider('wind-slider', 'wind-value', windStrength, val => {
+    windStrength = val;
+    if (val === 2.0 && !advancements.blowingWinter) {
+        completeAdvancement('blowingWinter');
+    }
+});
+setupSlider('turbulence-slider', 'turbulence-value', turbulence, val => {
+    turbulence = val;
+    if (val === 1.0 && !advancements.airplaneMode) {
+        completeAdvancement('airplaneMode');
+    }
+});
+setupSlider('bounce-slider', 'bounce-value', bounce, val => {
+    bounce = val;
+    if (val === 1.0 && !advancements.jello) {
+        completeAdvancement('jello');
+    }
+    checkSpongeAchievement();
+});
+setupSlider('mass-slider', 'mass-value', mass, val => {
+    mass = val;
+    checkSpongeAchievement();
+});
+setupSlider('elasticity-slider', 'elasticity-value', elasticity, val => {
+    elasticity = val;
+    checkSpongeAchievement();
+});
+setupSlider('mass-slider', 'mass-value', mass, val => mass = val);
+setupSlider('elasticity-slider', 'elasticity-value', elasticity, val => elasticity = val);
+setupSlider('air-slider', 'air-value', airResistance, val => {
+    airResistance = val;
+    if (val === 1.0 && !advancements.uhOh) {
+        completeAdvancement('uhOh');
+    }
+});
+setupSlider('cloth-width-slider', 'cloth-width-value', clothWidth, val => {
+    resetClothDimensions(val, clothHeight, spacing);
+    checkWhiteCube();
+});
+setupSlider('cloth-height-slider', 'cloth-height-value', clothHeight, val => {
+    resetClothDimensions(clothWidth, val, spacing);
+    checkWhiteCube();
+});
+setupSlider('spacing-slider', 'spacing-value', spacing, val => {
+    resetClothDimensions(clothWidth, clothHeight, val);
+    checkWhiteCube();
+});
+setupSlider('line-width-slider', 'line-width-value', lineWidth, val => {
+    lineWidth = val;
+    if (val === 10.0 && !advancements.thick) {
+        completeAdvancement('thick');
+    }
+});
+setupSlider('transparency-slider', 'transparency-value', transparency, val => {
+    transparency = val;
+    if (val === 1.0 && !advancements.whereIsIt) {
+        completeAdvancement('whereIsIt');
+    }
+});
+
+// New sliders for vortex, spiral, ripple, and orbit
+setupSlider('vortex-slider', 'vortex-value', vortex, val => {
+    vortex = val;
+    document.getElementById('vortex-value').textContent = val.toFixed(1);
+});
+
+setupSlider('spiral-slider', 'spiral-value', spiral, val => {
+    spiral = val;
+    document.getElementById('spiral-value').textContent = val.toFixed(1);
+});
+
+setupSlider('ripple-slider', 'ripple-value', ripple, val => {
+    ripple = val;
+    document.getElementById('ripple-value').textContent = val.toFixed(1);
+});
+
+setupSlider('orbit-slider', 'orbit-value', orbit, val => {
+    orbit = val;
+    document.getElementById('orbit-value').textContent = val.toFixed(1);
+});
+
+// Reset button functionality
+const resetButton = document.getElementById('reset-button');
+resetButton.addEventListener('click', () => {
+    playGunTriggerSound();
+    resetCount++;
+    
+    // Original reset logic
+    points.forEach((point, index) => {
+        point.x = initialPositions[index].x;
+        point.y = initialPositions[index].y;
+        point.oldX = initialPositions[index].x;
+        point.oldY = initialPositions[index].y;
+        point.pinned = index < clothWidth; // Re-pin only the top row
+    });
+
+    // Clear locked sticks
+    lockedSticks.clear();
+
+    // Restore removed sticks
+    while (removedSticks.length > 0) {
+        const stick = removedSticks.pop();
+        if (!sticks.includes(stick)) {
+            sticks.push(stick);
+        }
+    }
+
+    if (!advancements.clothReset) {
+        completeAdvancement('clothReset');
+    }
+
+    if (resetCount >= 50 && !advancements.erasement) {
+        completeAdvancement('erasement');
+        clothVisible = false;
+        // Add auto-reappear after 2 seconds
+        setTimeout(() => {
+            clothVisible = true;
+        }, 2000);
+    }
+});
+
+// Default physics values
+const defaultPhysics = {
+    stiffness: 0.8,
+    gravity: 0.5,
+    friction: 0.99
+};
+
+// Default modifier values
+const defaultModifiers = {
+    windStrength: 0,
+    turbulence: 0,
+    bounce: 0,
+    mass: 1,
+    elasticity: 1,
+    airResistance: 0,
+    rotationForce: 0,
+    swayForce: 0,
+    tension: 1,
+    pulse: 0,
+    swirl: 0,
+    shiver: 0,
+    twist: 0,
+    wave: 0,
+    noise: 0,
+    chaos: 0,
+    vortex: 0,
+    spiral: 0,
+    ripple: 0,
+    orbit: 0
+};
+
+// Reset physics button functionality
+const resetPhysicsButton = document.getElementById('reset-physics-button');
+resetPhysicsButton.addEventListener('click', () => {
+    playGunTriggerSound();
+    // Reset physics values
+    stiffness = defaultPhysics.stiffness;
+    gravity = defaultPhysics.gravity;
+    friction = defaultPhysics.friction;
+
+    // Update sliders and displays
+    document.getElementById('stiffness-slider').value = stiffness;
+    document.getElementById('stiffness-value').textContent = stiffness.toFixed(1);
+    document.getElementById('gravity-slider').value = gravity;
+    document.getElementById('gravity-value').textContent = gravity.toFixed(1);
+    document.getElementById('friction-slider').value = friction;
+    document.getElementById('friction-value').textContent = friction.toFixed(3);
+});
+
+// Reset modifiers button functionality
+const resetModifiersButton = document.getElementById('reset-modifiers-button');
+resetModifiersButton.addEventListener('click', () => {
+    playGunTriggerSound();
+    // Reset modifier values
+    windStrength = defaultModifiers.windStrength;
+    turbulence = defaultModifiers.turbulence;
+    bounce = defaultModifiers.bounce;
+    mass = defaultModifiers.mass;
+    elasticity = defaultModifiers.elasticity;
+    airResistance = defaultModifiers.airResistance;
+    rotationForce = defaultModifiers.rotationForce;
+    swayForce = defaultModifiers.swayForce;
+    tension = defaultModifiers.tension;
+    pulse = defaultModifiers.pulse;
+    swirl = defaultModifiers.swirl; 
+    shiver = defaultModifiers.shiver;
+    twist = defaultModifiers.twist;
+    wave = defaultModifiers.wave;
+    noise = defaultModifiers.noise;
+    chaos = defaultModifiers.chaos;
+    vortex = defaultModifiers.vortex; // Reset vortex
+    spiral = defaultModifiers.spiral; // Reset spiral
+    ripple = defaultModifiers.ripple; // Reset ripple
+    orbit = defaultModifiers.orbit; // Reset orbit
+
+    // Update new sliders
+    document.getElementById('wind-slider').value = windStrength;
+    document.getElementById('wind-value').textContent = windStrength.toFixed(1);
+    document.getElementById('turbulence-slider').value = turbulence;
+    document.getElementById('turbulence-value').textContent = turbulence.toFixed(1);
+    document.getElementById('bounce-slider').value = bounce;
+    document.getElementById('bounce-value').textContent = bounce.toFixed(1);
+    document.getElementById('mass-slider').value = mass;
+    document.getElementById('mass-value').textContent = mass.toFixed(1);
+    document.getElementById('elasticity-slider').value = elasticity;
+    document.getElementById('elasticity-value').textContent = elasticity.toFixed(1);
+    document.getElementById('air-slider').value = airResistance;
+    document.getElementById('air-value').textContent = airResistance.toFixed(1);
+    document.getElementById('rotation-slider').value = rotationForce;
+    document.getElementById('rotation-value').textContent = rotationForce.toFixed(1);
+    document.getElementById('sway-slider').value = swayForce;
+    document.getElementById('sway-value').textContent = swayForce.toFixed(1);
+    document.getElementById('tension-slider').value = tension;
+    document.getElementById('tension-value').textContent = tension.toFixed(1);
+    document.getElementById('pulse-slider').value = pulse;
+    document.getElementById('pulse-value').textContent = pulse.toFixed(1);
+    document.getElementById('swirl-slider').value = swirl;
+    document.getElementById('swirl-value').textContent = swirl.toFixed(1);
+    document.getElementById('shiver-slider').value = shiver;
+    document.getElementById('shiver-value').textContent = shiver.toFixed(1);
+    document.getElementById('twist-slider').value = twist;
+    document.getElementById('twist-value').textContent = twist.toFixed(1);
+    document.getElementById('wave-slider').value = wave;
+    document.getElementById('wave-value').textContent = wave.toFixed(1);
+    document.getElementById('noise-slider').value = noise;
+    document.getElementById('noise-value').textContent = noise.toFixed(1);
+    document.getElementById('chaos-slider').value = chaos;
+    document.getElementById('chaos-value').textContent = chaos.toFixed(1);
+    document.getElementById('vortex-slider').value = vortex;
+    document.getElementById('vortex-value').textContent = vortex.toFixed(1);
+    document.getElementById('spiral-slider').value = spiral;
+    document.getElementById('spiral-value').textContent = spiral.toFixed(1);
+    document.getElementById('ripple-slider').value = ripple;
+    document.getElementById('ripple-value').textContent = ripple.toFixed(1);
+    document.getElementById('orbit-slider').value = orbit;
+    document.getElementById('orbit-value').textContent = orbit.toFixed(1);
+});
+
+// Function to handle cloth dimension changes
+function resetClothDimensions(width, height, space) {
+    clothWidth = width;
+    clothHeight = height;
+    spacing = space;
+    
+    // Clear existing points and sticks
+    points.length = 0;
+    sticks.length = 0;
+    initialPositions.length = 0;
+
+    // Recreate points
+    for (let y = 0; y < clothHeight; y++) {
+        for (let x = 0; x < clothWidth; x++) {
+            const p = new Point(
+                canvas.width/2 - (clothWidth * spacing)/2 + x * spacing,
+                canvas.height/2 - (clothHeight * spacing)/2 + y * spacing  // Changed from canvas.height/3 to canvas.height/2
+            );
+            if (y === 0) p.pinned = true;
+            points.push(p);
+            initialPositions.push({ x: p.x, y: p.y });
+        }
+    }
+
+    // Recreate horizontal sticks
+    for (let y = 0; y < clothHeight; y++) {
+        for (let x = 0; x < clothWidth - 1; x++) {
+            const p1 = points[y * clothWidth + x];
+            const p2 = points[y * clothWidth + x + 1];
+            sticks.push(new Stick(p1, p2));
+        }
+    }
+
+    // Recreate vertical sticks
+    for (let y = 0; y < clothHeight - 1; y++) {
+        for (let x = 0; x < clothWidth; x++) {
+            const p1 = points[y * clothWidth + x];
+            const p2 = points[(y + 1) * clothWidth + x];
+            sticks.push(new Stick(p1, p2));
+        }
+    }
+}
+
+// Stick class for constraints between points
+class Stick {
+    constructor(p1, p2) {
+        this.p1 = p1;
+        this.p2 = p2;
+        this.length = spacing;
+    }
+
+    update() {
+        const dx = this.p2.x - this.p1.x;
+        const dy = this.p2.y - this.p1.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const difference = this.length - distance;
+        const percent = (difference / distance) * stiffness;
+        const offsetX = dx * percent;
+        const offsetY = dy * percent;
+
+        if (!this.p1.pinned) {
+            this.p1.x -= offsetX;
+            this.p1.y -= offsetY;
+        }
+        if (!this.p2.pinned) {
+            this.p2.x += offsetX;
+            this.p2.y += offsetY;
+        }
+    }
+
+    checkTearing() {
+        if (!installedMods.has('tearing') || !tearingEnabled) return false;
+        
+        const dx = this.p2.x - this.p1.x;
+        const dy = this.p2.y - this.p1.y;
+        const currentLength = Math.sqrt(dx * dx + dy * dy);
+        
+        return currentLength > this.length * 2; // Break if stretched more than 2x
+    }
+}
+
+// Create sticks
+const sticks = [];
+
+// Create horizontal sticks
+for (let y = 0; y < clothHeight; y++) {
+    for (let x = 0; x < clothWidth - 1; x++) {
+        const p1 = points[y * clothWidth + x];
+        const p2 = points[y * clothWidth + x + 1];
+        sticks.push(new Stick(p1, p2));
+    }
+}
+
+// Create vertical sticks
+for (let y = 0; y < clothHeight - 1; y++) {
+    for (let x = 0; x < clothWidth; x++) {
+        const p1 = points[y * clothWidth + x];
+        const p2 = points[(y + 1) * clothWidth + x];
+        sticks.push(new Stick(p1, p2));
+    }
+}
+
+// Mouse interaction
+let mouse = { x: 0, y: 0, down: false };
+let selectedPoint = null;
+
+canvas.addEventListener('mousedown', (e) => {
+    mouse.down = true;
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+
+    // Find closest point
+    let minDist = Infinity;
+    points.forEach(p => {
+        const dx = p.x - mouse.x;
+        const dy = p.y - mouse.y;
+        const dist = dx * dx + dy * dy;
+        if (dist < minDist) {
+            minDist = dist;
+            selectedPoint = p;
+        }
+    });
+});
+
+canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+});
+
+canvas.addEventListener('mouseup', () => {
+    mouse.down = false;
+    selectedPoint = null;
+});
+
+// Function to play gun trigger sound
+function playGunTriggerSound() {
+    const sound = document.getElementById('gunTriggerSound');
+    sound.currentTime = 0; // Reset sound to start
+    sound.play();
+}
+
+// Scissors tool functionality
+let scissorsMode = false;
+let removedSticks = [];
+
+const scissorsButton = document.getElementById('scissors-button');
+
+scissorsButton.addEventListener('click', () => {
+    playGunTriggerSound();
+    scissorsMode = !scissorsMode;
+    scissorsButton.classList.toggle('active');
+    canvas.style.cursor = scissorsMode ? 'crosshair' : 'none';
+});
+
+// Key tool functionality
+let keyMode = false;
+let lockedSticks = new Set();
+
+const keyButton = document.getElementById('key-button');
+
+keyButton.addEventListener('click', () => {
+    playGunTriggerSound();
+    keyMode = !keyMode;
+    if (keyMode) {
+        scissorsMode = false;
+        scissorsButton.classList.remove('active');
+    }
+    keyButton.classList.toggle('active');
+    canvas.style.cursor = keyMode ? 'crosshair' : 'none';
+});
+
+// Modify the canvas click handler to track cut/lock achievements
+canvas.addEventListener('click', (e) => {
+    if (!scissorsMode && !keyMode) return;
+    
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    let closestStick = null;
+    let minDist = Infinity;
+    
+    // Find closest stick to mouse position
+    sticks.forEach(stick => {
+        const x1 = stick.p1.x;
+        const y1 = stick.p1.y;
+        const x2 = stick.p2.x;
+        const y2 = stick.p2.y;
+        
+        const A = mouseX - x1;
+        const B = mouseY - y1;
+        const C = x2 - x1;
+        const D = y2 - y1;
+        
+        const dot = A * C + B * D;
+        const lenSq = C * C + D * D;
+        let param = -1;
+        
+        if (lenSq !== 0)
+            param = dot / lenSq;
+            
+        let xx, yy;
+        
+        if (param < 0) {
+            xx = x1;
+            yy = y1;
+        } else if (param > 1) {
+            xx = x2;
+            yy = y2;
+        } else {
+            xx = x1 + param * C;
+            yy = y1 + param * D;
+        }
+
+        const dx = mouseX - xx;
+        const dy = mouseY - yy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < minDist && dist < 20) {
+            minDist = dist;
+            closestStick = stick;
+        }
+    });
+
+    if (closestStick) {
+        if (scissorsMode) {
+            const index = sticks.indexOf(closestStick);
+            if (index > -1) {
+                removedSticks.push(closestStick);
+                sticks.splice(index, 1);
+                if (!advancements.cutCut) {
+                    completeAdvancement('cutCut');
+                }
+            }
+        } else if (keyMode) {
+            if (lockedSticks.has(closestStick)) {
+                lockedSticks.delete(closestStick);
+                closestStick.p1.pinned = false;
+                closestStick.p2.pinned = false;
+            } else {
+                lockedSticks.add(closestStick);
+                closestStick.p1.pinned = true;
+                closestStick.p2.pinned = true;
+                if (!advancements.security100) {
+                    completeAdvancement('security100');
+                }
+            }
+        }
+    }
+});
+
+// Animation loop
+function animate() {
+    time += 0.1;
+    animationTime += 0.016; // Update animation time
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (clothVisible) {
+        // Update points
+        points.forEach(point => point.update());
+
+        // Update sticks multiple times for better stability
+        for (let i = 0; i < 3; i++) {
+            sticks.forEach((stick, index) => {
+                stick.update();
+                if (stick.checkTearing()) {
+                    removedSticks.push(stick);
+                    sticks.splice(index, 1);
+                }
+            });
+        }
+
+        // Handle mouse interaction
+        if (mouse.down && selectedPoint) {
+            selectedPoint.x = mouse.x;
+            selectedPoint.y = mouse.y;
+            selectedPoint.oldX = mouse.x;
+            selectedPoint.oldY = mouse.y;
+        }
+
+        // Add line drawing functions based on current line type
+        sticks.forEach(stick => {
+            drawStick(stick);
+        });
+    }
+
+    requestAnimationFrame(animate);
+}
+
+// Line drawing functions
+function drawStick(stick) {
+    const alpha = 1 - transparency; // Convert transparency to opacity
+    switch(currentLineType) {
+        case 'zigzag':
+            drawZigzagLine(stick.p1.x, stick.p1.y, stick.p2.x, stick.p2.y, alpha);
+            break;
+        case 'dotted':
+            drawDottedLine(stick.p1.x, stick.p1.y, stick.p2.x, stick.p2.y, alpha);
+            break;
+        case 'dashed':
+            drawDashedLine(stick.p1.x, stick.p1.y, stick.p2.x, stick.p2.y, alpha);
+            break;
+        case 'wavy':
+            drawWavyLine(stick.p1.x, stick.p1.y, stick.p2.x, stick.p2.y, alpha);
+            break;
+        case 'double':
+            drawDoubleLine(stick.p1.x, stick.p1.y, stick.p2.x, stick.p2.y, alpha);
+            break;
+        case 'gradient':
+            drawGradientLine(stick.p1.x, stick.p1.y, stick.p2.x, stick.p2.y, alpha);
+            break;
+        case 'neon':
+            drawNeonLine(stick.p1.x, stick.p1.y, stick.p2.x, stick.p2.y, alpha);
+            break;
+        case 'rainbow':
+            drawRainbowLine(stick.p1.x, stick.p1.y, stick.p2.x, stick.p2.y, alpha);
+            break;
+        default:
+            const color = clothColor.startsWith('#') ? clothColor : '#ffffff';
+            const r = parseInt(color.substr(1,2), 16);
+            const g = parseInt(color.substr(3,2), 16);
+            const b = parseInt(color.substr(5,2), 16);
+            ctx.beginPath();
+            ctx.strokeStyle = lockedSticks.has(stick) ? 
+                `rgba(255, 215, 0, ${alpha})` : 
+                `rgba(${r}, ${g}, ${b}, ${alpha})`;
+            ctx.lineWidth = lockedSticks.has(stick) ? lineWidth + 1 : lineWidth;
+            ctx.moveTo(stick.p1.x, stick.p1.y);
+            ctx.lineTo(stick.p2.x, stick.p2.y);
+            ctx.stroke();
+    }
+}
+
+function drawZigzagLine(x1, y1, x2, y2, alpha) {
+    const segments = 8;
+    const dx = (x2 - x1) / segments;
+    const dy = (y2 - y1) / segments;
+    const offset = 5;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    for(let i = 1; i < segments; i++) {
+        ctx.lineTo(x1 + dx * i + (i % 2 ? offset : -offset), 
+                  y1 + dy * i + (i % 2 ? offset : -offset));
+    }
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = clothColor;
+    ctx.globalAlpha = alpha; // Set transparency
+    ctx.stroke();
+    ctx.globalAlpha = 1; // Reset transparency
+}
+
+function drawDottedLine(x1, y1, x2, y2, alpha) {
+    const segments = 10;
+    const dx = (x2 - x1) / segments;
+    const dy = (y2 - y1) / segments;
+
+    for(let i = 0; i <= segments; i++) {
+        ctx.beginPath();
+        ctx.arc(x1 + dx * i, y1 + dy * i, lineWidth/2, 0, Math.PI * 2);
+        ctx.fillStyle = clothColor;
+        ctx.globalAlpha = alpha; // Set transparency
+        ctx.fill();
+        ctx.globalAlpha = 1; // Reset transparency
+    }
+}
+
+function drawDashedLine(x1, y1, x2, y2, alpha) {
+    ctx.beginPath();
+    ctx.setLineDash([5, 5]);
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = clothColor;
+    ctx.globalAlpha = alpha; // Set transparency
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1; // Reset transparency
+}
+
+function drawWavyLine(x1, y1, x2, y2, alpha) {
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+    const segments = 20;
+    const amplitude = 5;
+    const frequency = 3;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    for(let i = 0; i <= segments; i++) {
+        const t = i / segments;
+        const x = x1 + dx * t;
+        const y = y1 + dy * t + Math.sin(t * Math.PI * frequency + animationTime * 5) * amplitude;
+        ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = clothColor;
+    ctx.globalAlpha = alpha; // Set transparency
+    ctx.stroke();
+    ctx.globalAlpha = 1; // Reset transparency
+}
+
+function drawDoubleLine(x1, y1, x2, y2, alpha) {
+    const angle = Math.atan2(y2 - y1, x2 - x1);
+    const offset = 2;
+
+    ctx.beginPath();
+    ctx.moveTo(x1 + Math.cos(angle + Math.PI/2) * offset, 
+               y1 + Math.sin(angle + Math.PI/2) * offset);
+    ctx.lineTo(x2 + Math.cos(angle + Math.PI/2) * offset,
+               y2 + Math.sin(angle + Math.PI/2) * offset);
+    ctx.moveTo(x1 + Math.cos(angle - Math.PI/2) * offset,
+               y1 + Math.sin(angle - Math.PI/2) * offset);
+    ctx.lineTo(x2 + Math.cos(angle - Math.PI/2) * offset,
+               y2 + Math.sin(angle - Math.PI/2) * offset);
+    ctx.strokeStyle = clothColor;
+    ctx.globalAlpha = alpha; // Set transparency
+    ctx.stroke();
+    ctx.globalAlpha = 1; // Reset transparency
+}
+
+function drawGradientLine(x1, y1, x2, y2, alpha) {
+    const gradient = ctx.createLinearGradient(x1, y1, x2, y2);
+    gradient.addColorStop(0, clothColor);
+    gradient.addColorStop(1, '#ffffff');
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = gradient;
+    ctx.globalAlpha = alpha; // Set transparency
+    ctx.stroke();
+    ctx.globalAlpha = 1; // Reset transparency
+}
+
+function drawNeonLine(x1, y1, x2, y2, alpha) {
+    // Glow effect
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = clothColor;
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = clothColor;
+    ctx.globalAlpha = alpha; // Set transparency
+    ctx.stroke();
+
+    // Reset shadow
+    ctx.shadowBlur = 0;
+    ctx.globalAlpha = 1; // Reset transparency
+}
+
+function drawRainbowLine(x1, y1, x2, y2, alpha) {
+    const hue = (animationTime * 50) % 360;
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+    ctx.globalAlpha = alpha; // Set transparency
+    ctx.stroke();
+    ctx.globalAlpha = 1; // Reset transparency
+}
+
+// Add event listener for line type selector
+document.getElementById('line-type-selector').addEventListener('change', function(e) {
+    playGunTriggerSound();
+    currentLineType = e.target.value;
+    if (currentLineType === 'rainbow' && !advancements.prideMonth) {
+        completeAdvancement('prideMonth');
+    }
+});
+
+// Local Storage for advancements
+let advancements = JSON.parse(localStorage.getItem('advancements')) || {};
+
+// Advancements button functionality
+document.getElementById('advancements-button').addEventListener('click', () => {
+    playGunTriggerSound();
+    document.getElementById('advancements-panel').classList.toggle('hidden');
+});
+
+// Function to complete an advancement
+function completeAdvancement(id) {
+    if (advancements[id]) return; // Don't show notification if already completed
+
+    advancements[id] = true;
+    localStorage.setItem('advancements', JSON.stringify(advancements));
+    updateAdvancementsDisplay();
+
+    // Show notification
+    const notification = document.createElement('div');
+    notification.className = 'achievement-notification';
+    notification.innerHTML = `
+        <div class="icon">⭐</div>
+        <div class="details">
+            <h3>Achievement Unlocked!</h3>
+            <p>${id.replace('-', ' ').replace(/^\w/, c => c.toUpperCase())}</p>
+        </div>
+    `;
+
+    document.body.appendChild(notification);
+    
+    // Trigger animation
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    // Remove notification after delay
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        },
+        500);
+    });
+}
+
+// Function to update advancements display
+function updateAdvancementsDisplay() {
+    const achievements = {
+        orbitalLightning: 'orbital-lightning',
+        diceKing: 'dice-king',
+        diceMaster: 'dice-master',
+        blowingWinter: 'blowing-winter',
+        uhOh: 'uh-oh',
+        fashionDesigner: 'fashion-designer',
+        prideMonth: 'pride-month',
+        clothReset: 'cloth-reset',
+        secretFashion: 'secret-fashion',
+        cutCut: 'cut-cut',
+        security100: 'security-100',
+        jello: 'jello',
+        airplaneMode: 'airplane-mode',
+        thick: 'thick',
+        whiteCube: 'white-cube',
+        sponge: 'sponge',
+        erasement: 'erasement',
+        rainbowUnstoppable: 'rainbow-unstoppable',
+        whereIsIt: 'where-is-it',
+        lunatic: 'lunatic',
+        danceParty: 'dance-party'
+    };
+
+    for (const [key, elementId] of Object.entries(achievements)) {
+        if (advancements[key]) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.classList.add('completed');
+                element.querySelector('.advancement-status').textContent = '✅';
+            }
+        }
+    }
+}
+
+// Call this when the page loads to update the display
+updateAdvancementsDisplay();
+
+// Add close button functionality for advancements panel with sound
+document.querySelector('#advancements-panel .close-button').addEventListener('click', () => {
+    playGunTriggerSound();
+    document.getElementById('advancements-panel').classList.add('hidden');
+});
+
+// Add dice roll counter
+let diceRollCount = 0;
+
+// Modify the dice click handlers to track achievements and play sound
+function onDiceClick() {
+    playGunTriggerSound();
+    diceRollCount++;
+    
+    if (!advancements.diceKing) {
+        completeAdvancement('diceKing');
+    }
+    
+    if (diceRollCount >= 1000 && !advancements.diceMaster) {
+        completeAdvancement('diceMaster');
+    }
+}
+
+// Add click handlers to all dice icons
+document.querySelectorAll('.dice-icon').forEach(dice => {
+    const originalClick = dice.onclick;
+    dice.onclick = function(e) {
+        if (originalClick) originalClick.call(this, e);
+        onDiceClick();
+    };
+});
+
+// Add event listeners for new advancements
+document.getElementById('properties-tab').addEventListener('change', function(e) {
+    if (!advancements.fashionDesigner) {
+        completeAdvancement('fashionDesigner');
+    }
+});
+
+// Add search functionality
+const modifierSearch = document.getElementById('modifier-search');
+modifierSearch.addEventListener('input', function(e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const modifierSliders = document.querySelectorAll('#modifiers-tab .slider-container');
+    
+    modifierSliders.forEach(slider => {
+        const label = slider.querySelector('label').textContent.toLowerCase();
+        if (label.includes(searchTerm)) {
+            slider.classList.remove('hidden');
+        } else {
+            slider.classList.add('hidden');
+        }
+    });
+});
+
+// Add sound to search bar focus
+modifierSearch.addEventListener('focus', playGunTriggerSound);
+
+// Mod loader button functionality
+document.getElementById('mod-loader-button').addEventListener('click', () => {
+    playGunTriggerSound();
+    document.getElementById('mod-loader-panel').classList.toggle('hidden');
+});
+
+// Mod loader panel functionality
+document.querySelector('#mod-loader-panel .close-button').addEventListener('click', () => {
+    playGunTriggerSound();
+    document.getElementById('mod-loader-panel').classList.add('hidden');
+});
+
+// Mod management functions
+function toggleMod(modId) {
+    playGunTriggerSound();
+    const button = document.querySelector(`#${modId}-mod .mod-action-button`);
+    
+    if (installedMods.has(modId)) {
+        // Uninstall mod
+        installedMods.delete(modId);
+        button.textContent = 'Install';
+        
+        if (modId === 'tearing') {
+            // Remove tearing UI and functionality
+            const tearingButton = document.getElementById('tearing-button');
+            if (tearingButton) {
+                tearingButton.remove();
+            }
+            tearingEnabled = false;
+        }
+    } else {
+        // Install mod
+        installedMods.add(modId);
+        button.textContent = 'Uninstall';
+        
+        if (modId === 'tearing') {
+            // Add tearing UI and functionality
+            addTearingButton();
+        }
+    }
+}
+
+function addTearingButton() {
+    const switchesDiv = document.querySelector('.switches-tool');
+    if (!switchesDiv.querySelector('#tearing-button')) {
+        const tearingButton = document.createElement('button');
+        tearingButton.id = 'tearing-button';
+        tearingButton.textContent = 'Tearing: OFF';
+        tearingButton.addEventListener('click', () => {
+            playGunTriggerSound();
+            tearingEnabled = !tearingEnabled;
+            tearingButton.textContent = `Tearing: ${tearingEnabled ? 'ON' : 'OFF'}`;
+            tearingButton.classList.toggle('active');
+        });
+        switchesDiv.appendChild(tearingButton);
+    }
+}
+
+// Start the animation
+animate();
+
+// Add CSS for mod loader panel
+const modLoaderPanelStyles = `
+    .mod-loader-panel {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+        z-index: 2000;
+        min-width: 300px;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .mod-loader-panel.hidden {
+        display: none;
+    }
+
+    .mod {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 5px;
+        margin: 10px 0;
+        transition: background 0.3s ease;
+    }
+
+    .mod:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .mod-icon {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+
+    .mod-details {
+        flex-grow: 1;
+    }
+
+    .mod-details h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.1em;
+    }
+
+    .mod-details p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #999;
+    }
+
+    .mod-action-button {
+        padding: 8px 16px;
+        background: rgba(80, 80, 80, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .mod-action-button:hover {
+        background: rgba(100, 100, 100, 0.8);
+    }
+`;
+const modLoaderPanelStyleElement = document.createElement('style');
+modLoaderPanelStyleElement.textContent = modLoaderPanelStyles;
+document.head.appendChild(modLoaderPanelStyleElement);
+</script>
+<style>
+    body {
+        background-image: linear-gradient(45deg, #2a2a2a 25%, transparent 25%),
+                          linear-gradient(-45deg, #2a2a2a 25%, transparent 25%),
+                          linear-gradient(45deg, transparent 75%, #2a2a2a 75%),
+                          linear-gradient(-45deg, transparent 75%, #2a2a2a 75%);
+        background-size: 40px 40px;
+        background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+        background-color: #1a1a1a;
+        animation: moveBackground 2s linear infinite;
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        cursor: none; /* Hide the default cursor */
+    }
+    canvas {
+        background: rgba(42, 42, 42, 0.6); /* Make canvas background semi-transparent */
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        cursor: none; /* Hide the default cursor on canvas */
+    }
+    .custom-cursor {
+        width: 12px;
+        height: 12px;
+        border: 2px solid white;
+        background: rgba(255, 255, 255, 0.2);
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease;
+    }
+    /* Keep cursor visible on buttons and interactive elements */
+    button, input[type="range"], input[type="color"] {
+        cursor: pointer;
+    }
+    .stats-panel {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        color: white;
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 5px;
+        width: 250px;
+        max-height: 90vh;
+        overflow-y: auto;
+        transform: translateX(0);
+        transition: transform 0.3s ease;
+    }
+    .stats-panel.collapsed {
+        transform: translateX(calc(100% - 30px));
+    }
+    .collapse-button {
+        position: absolute;
+        left: -25px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(20, 20, 20, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        width: 25px;
+        height: 40px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px 0 0 5px;
+        transition: background 0.3s ease;
+    }
+    .collapse-button:hover {
+        background: rgba(40, 40, 40, 0.95);
+    }
+    .collapse-button span {
+        transition: transform 0.3s ease;
+    }
+    .stats-panel.collapsed .collapse-button span {
+        transform: rotate(180deg);
+    }
+    .tab-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .tab-button {
+        padding: 8px 5px;
+        font-size: 0.9em;
+        position: relative;
+        overflow: hidden;
+    }
+    .tab-button.active {
+        background: rgba(80, 80, 80, 0.8);
+        color: white;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+    .slider-container {
+        background: rgba(30, 30, 30, 0.6);
+        padding: 10px;
+        border-radius: 4px;
+        margin: 15px 0;
+    }
+    .slider-container label {
+        color: #ccc;
+        font-size: 0.9em;
+        margin-bottom: 8px;
+    }
+    input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        background: #666;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+        background: #888;
+    }
+    .value-display {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 0.8em;
+    }
+    #reset-button,
+    #reset-physics-button,
+    #reset-modifiers-button {
+        background: linear-gradient(to bottom, #444, #333);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        width: 100%;
+        margin: 10px 0;
+        padding: 8px;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    #reset-button:hover,
+    #reset-physics-button:hover,
+    #reset-modifiers-button:hover {
+        background: linear-gradient(to bottom, #555, #444);
+        transform: translateY(-1px);
+    }
+    input[type="color"] {
+        -webkit-appearance: none;
+        border: none;
+        padding: 0;
+        height: 40px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    .tab-content h3 {
+        color: #ddd;
+        font-size: 1.1em;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 8px;
+    }
+    .ripple {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: rippleEffect 0.6s linear;
+        pointer-events: none;
+    }
+    @keyframes rippleEffect {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    .dice-icon {
+        background: none;
+        border: none;
+        color: #999;
+        cursor: pointer;
+        padding: 2px 6px;
+        transition: color 0.3s ease;
+        float: right;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .dice-icon:active img {
+        animation: diceClick 0.3s ease;
+    }
+    .dice-icon:hover {
+        color: #bbb;
+    }
+    .dice-icon img {
+        width: 24px;
+        height: 24px;
+    }
+    .tab-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 8px;
+    }
+    .slider-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+    @keyframes diceClick {
+        0% { transform: scale(1); }
+        50% { transform: scale(0.8) rotate(-10deg); }
+        100% { transform: scale(1); }
+    }
+    /* Add these styles */
+    .scissors-tool {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+
+    .scissors-tool button {
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+    }
+
+    .scissors-tool button:hover {
+        background: rgba(40, 40, 40, 0.95);
+    }
+
+    .scissors-tool button.active {
+        background: rgba(80, 80, 80, 0.8);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .scissors-tool button svg path {
+        transition: stroke 0.3s ease;
+    }
+
+    .scissors-tool button:hover svg path {
+        stroke: #bbb;
+    }
+
+    .scissors-tool button.active svg path {
+        stroke: #fff;
+    }
+
+    .line-type-select {
+        width: 100%;
+        padding: 8px;
+        background: rgba(30, 30, 30, 0.6);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9em;
+        margin-top: 5px;
+    }
+
+    .line-type-select:hover {
+        background: rgba(40, 40, 40, 0.6);
+    }
+
+    .line-type-select option {
+        background: #2a2a2a;
+        color: #fff;
+        padding: 8px;
+    }
+    @keyframes moveBackground {
+        from {
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+        }
+        to {
+            background-position: 0 40px, 0 60px, 20px 20px, -20px 40px;
+        }
+    }
+    .key-tool {
+        position: fixed;
+        bottom: 20px;
+        left: 80px;
+        z-index: 1000;
+    }
+
+    .key-tool button {
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+    }
+
+    .key-tool button:hover {
+        background: rgba(40, 40, 40, 0.95);
+    }
+
+    .key-tool button.active {
+        background: rgba(80, 80, 80, 0.8);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .key-tool button svg path,
+    .key-tool button svg circle {
+        transition: stroke 0.3s ease, stroke-width 0.3s ease;
+        stroke-width: 2.5px; /* Make lines slightly thicker */
+    }
+
+    .key-tool button svg {
+        transform: rotate(-45deg); /* Tilt the key for better appearance */
+    }
+
+    .key-tool button:hover svg path,
+    .key-tool button:hover svg circle {
+        stroke-width: 3px; /* Increase stroke width on hover */
+    }
+
+    /* Add this for locked sticks */
+    .locked-stick {
+        stroke: #ffd700 !important;
+        stroke-width: 3px;
+    }
+    /* Add these styles for advancements */
+    .advancements-tool {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+
+    .advancements-tool button {
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+    }
+
+    .advancements-tool button:hover {
+        background: rgba(40, 40, 40, 0.95);
+    }
+
+    .advancements-tool button svg path {
+        transition: stroke 0.3s ease, fill 0.3s ease;
+    }
+
+    .advancements-tool button:hover svg path {
+        stroke: #bbb;
+    }
+
+    .advancements-panel {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+        z-index: 2000;
+        min-width: 300px;
+        max-height: 80vh;  /* Set maximum height to 80% of viewport height */
+        overflow-y: auto;  /* Enable vertical scrolling */
+    }
+
+    .advancements-panel.hidden {
+        display: none;
+    }
+
+    .advancement {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 5px;
+        margin: 10px 0;
+        transition: background 0.3s ease;
+    }
+
+    .advancement:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .advancement-icon {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+    }
+
+    .advancement-details {
+        flex-grow: 1;
+    }
+
+    .advancement-details h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.1em;
+    }
+
+    .advancement-details p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #999;
+    }
+
+    .advancement-status {
+        font-size: 20px;
+    }
+
+    .advancement.completed {
+        background: rgba(0, 255, 0, 0.1);
+    }
+
+    .achievement-notification {
+        position: fixed;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%);
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px 25px;
+        border-radius: 5px;
+        color: white;
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+
+    .achievement-notification.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    .achievement-notification .icon {
+        font-size: 24px;
+    }
+
+    .achievement-notification .details h3 {
+        margin: 0 0 5px 0;
+        font-size: 1.1em;
+    }
+
+    .achievement-notification .details p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #999;
+    }
+
+    /* Add these styles in the <style> section */
+    .search-container {
+        margin: 10px 0;
+        padding: 10px;
+        background: rgba(30, 30, 30, 0.6);
+        border-radius: 4px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 8px;
+        background: rgba(20, 20, 20, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        color: #fff;
+        font-size: 0.9em;
+    }
+
+    .search-input::placeholder {
+        color: #999;
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .slider-container.hidden {
+        display: none;
+    }
+    
+    .switches-tool {
+        position: fixed;
+        bottom: 20px;
+        left: 140px;
+        z-index: 1000;
+    }
+
+    .switches-tool button {
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+        color: #fff;
+        min-width: 120px;
+    }
+
+    .switches-tool button:hover {
+        background: rgba(40, 40, 40, 0.95);
+    }
+
+    .switches-tool button.active {
+        background: rgba(80, 80, 80, 0.8);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+</style>
+</body></html>
