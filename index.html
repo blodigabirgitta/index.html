@@ -1,0 +1,378 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberOS - The Future of Computing</title>
+<style>
+    :root {
+        --theme-color: #00ff00;
+        --bg-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Orbitron', sans-serif;
+        background-color: #0a0a0a;
+        color: var(--theme-color);
+        height: 100%;
+        overflow: hidden;
+    }
+    #desktop {
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+    }
+    #icons {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+    .icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .icon:hover {
+        transform: scale(1.1);
+    }
+    .icon svg {
+        width: 50px;
+        height: 50px;
+        fill: var(--theme-color);
+    }
+    .icon span {
+        margin-top: 5px;
+        text-align: center;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    }
+    #taskbar {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #start-menu {
+        background-color: var(--theme-color);
+        color: #0a0a0a;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: bold;
+    }
+    #clock {
+        font-size: 1.2em;
+    }
+    .window {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.8);
+        border: 2px solid var(--theme-color);
+        min-width: 300px;
+        min-height: 200px;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    }
+    .window-header {
+        background-color: var(--theme-color);
+        color: #0a0a0a;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: move;
+    }
+    .window-content {
+        padding: 10px;
+        flex-grow: 1;
+        overflow: auto;
+    }
+    .close-btn {
+        background: none;
+        border: none;
+        color: #0a0a0a;
+        font-size: 1.2em;
+        cursor: pointer;
+    }
+    #start-menu-panel {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0.9);
+        border: 2px solid var(--theme-color);
+        display: none;
+        flex-direction: column;
+        padding: 10px;
+    }
+    .start-menu-item {
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .start-menu-item:hover {
+        background-color: rgba(0, 255, 0, 0.2);
+    }
+    #background-preview {
+        width: 100%;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+        margin-top: 10px;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="desktop">
+    <div id="icons">
+        <div class="icon" data-window="file-explorer">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/>
+            </svg>
+            <span>Files</span>
+        </div>
+        <div class="icon" data-window="terminal">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8h16v10zm-2-1h-6v-2h6v2zM7.5 17l-1.41-1.41L8.67 13l-2.58-2.59L7.5 9l4 4-4 4z"/>
+            </svg>
+            <span>Terminal</span>
+        </div>
+        <div class="icon" data-window="settings">
+            <svg viewBox="0 0 24 24">
+                <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+            </svg>
+            <span>Settings</span>
+        </div>
+    </div>
+    <div id="taskbar">
+        <button id="start-menu">CyberOS</button>
+        <div id="clock"></div>
+    </div>
+</div>
+
+<div id="start-menu-panel">
+    <div class="start-menu-item" data-window="file-explorer">Files</div>
+    <div class="start-menu-item" data-window="terminal">Terminal</div>
+    <div class="start-menu-item" data-window="settings">Settings</div>
+    <div class="start-menu-item" id="shutdown">Shutdown</div>
+</div>
+
+<div id="file-explorer" class="window">
+    <div class="window-header">
+        <span>File Explorer</span>
+        <button class="close-btn">&times;</button>
+    </div>
+    <div class="window-content">
+        <p>Welcome to the CyberOS File Explorer. Navigate your digital realm with ease.</p>
+        <ul>
+            <li>Documents</li>
+            <li>Pictures</li>
+            <li>Music</li>
+            <li>Videos</li>
+        </ul>
+    </div>
+</div>
+
+<div id="terminal" class="window">
+    <div class="window-header">
+        <span>Terminal</span>
+        <button class="close-btn">&times;</button>
+    </div>
+    <div class="window-content">
+        <p>CyberOS Terminal v1.0</p>
+        <p>Type 'help' for a list of commands.</p>
+        <div id="terminal-output"></div>
+        <input type="text" id="terminal-input" placeholder="Enter command...">
+    </div>
+</div>
+
+<div id="settings" class="window">
+    <div class="window-header">
+        <span>Settings</span>
+        <button class="close-btn">&times;</button>
+    </div>
+    <div class="window-content">
+        <h2>CyberOS Settings</h2>
+        <p>Customize your cyber experience:</p>
+        <label>
+            Theme Color:
+            <input type="color" id="theme-color" value="#00ff00">
+        </label>
+        <br><br>
+        <label>
+            Font Size:
+            <input type="range" id="font-size" min="12" max="24" value="16">
+        </label>
+        <br><br>
+        <label>
+            Background Image URL:
+            <input type="text" id="bg-image-url" placeholder="Enter image URL">
+        </label>
+        <button id="apply-bg">Apply Background</button>
+        <div id="background-preview"></div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Clock functionality
+    function updateClock() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        document.getElementById('clock').textContent = timeString;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Window management
+    const icons = document.querySelectorAll('.icon');
+    const windows = document.querySelectorAll('.window');
+    const closeBtns = document.querySelectorAll('.close-btn');
+
+    function openWindow(windowId) {
+        const window = document.getElementById(windowId);
+        window.style.display = 'flex';
+        window.style.left = `${Math.random() * (innerWidth - 300)}px`;
+        window.style.top = `${Math.random() * (innerHeight - 200)}px`;
+    }
+
+    icons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            const windowId = icon.getAttribute('data-window');
+            openWindow(windowId);
+        });
+    });
+
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.closest('.window').style.display = 'none';
+        });
+    });
+
+    // Make windows draggable
+    windows.forEach(makeWindowDraggable);
+
+    function makeWindowDraggable(window) {
+        const header = window.querySelector('.window-header');
+        let isDragging = false;
+        let startX, startY, initialX, initialY;
+
+        header.addEventListener('mousedown', startDragging);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', stopDragging);
+
+        function startDragging(e) {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+            initialX = window.offsetLeft;
+            initialY = window.offsetTop;
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                window.style.left = `${initialX + dx}px`;
+                window.style.top = `${initialY + dy}px`;
+            }
+        }
+
+        function stopDragging() {
+            isDragging = false;
+        }
+    }
+
+    // Terminal functionality
+    const terminalInput = document.getElementById('terminal-input');
+    const terminalOutput = document.getElementById('terminal-output');
+
+    terminalInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const command = this.value;
+            terminalOutput.innerHTML += `<p>> ${command}</p>`;
+            
+            // Process command
+            switch(command.toLowerCase()) {
+                case 'help':
+                    terminalOutput.innerHTML += '<p>Available commands: help, clear, echo, date</p>';
+                    break;
+                case 'clear':
+                    terminalOutput.innerHTML = '';
+                    break;
+                case 'date':
+                    terminalOutput.innerHTML += `<p>${new Date().toString()}</p>`;
+                    break;
+                default:
+                    if (command.toLowerCase().startsWith('echo ')) {
+                        terminalOutput.innerHTML += `<p>${command.slice(5)}</p>`;
+                    } else {
+                        terminalOutput.innerHTML += '<p>Command not recognized. Type "help" for available commands.</p>';
+                    }
+            }
+
+            this.value = '';
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+    });
+
+    // Settings functionality
+    const themeColor = document.getElementById('theme-color');
+    const fontSize = document.getElementById('font-size');
+    const bgImageUrl = document.getElementById('bg-image-url');
+    const applyBgBtn = document.getElementById('apply-bg');
+    const bgPreview = document.getElementById('background-preview');
+
+    themeColor.addEventListener('input', function() {
+        document.documentElement.style.setProperty('--theme-color', this.value);
+    });
+
+    fontSize.addEventListener('input', function() {
+        document.body.style.fontSize = `${this.value}px`;
+    });
+
+    applyBgBtn.addEventListener('click', function() {
+        const newBgUrl = bgImageUrl.value;
+        if (newBgUrl) {
+            document.documentElement.style.setProperty('--bg-image', `url('${newBgUrl}')`);
+            bgPreview.style.backgroundImage = `url('${newBgUrl}')`;
+        }
+    });
+
+    // Start menu functionality
+    const startMenu = document.getElementById('start-menu');
+    const startMenuPanel = document.getElementById('start-menu-panel');
+    const startMenuItems = document.querySelectorAll('.start-menu-item');
+
+    startMenu.addEventListener('click', function() {
+        startMenuPanel.style.display = startMenuPanel.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    startMenuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const windowId = this.getAttribute('data-window');
+            if (windowId) {
+                openWindow(windowId);
+            } else if (this.id === 'shutdown') {
+                alert('Shutting down CyberOS...');
+                window.close(); // This may not work in all browsers due to security restrictions
+            }
+            startMenuPanel.style.display = 'none';
+        });
+    });
+
+    // Close start menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!startMenuPanel.contains(event.target) && event.target !== startMenu) {
+            startMenuPanel.style.display = 'none';
+        }
+    });
+});
+</script>
+</body></html>
