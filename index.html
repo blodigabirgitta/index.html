@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DC Universe Fractal Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>DC Universe Fractal Explorer</h1>
+      <div class="search-container">
+        <input type="text" id="search" placeholder="Search the DC Universe...">
+        <div class="filters">
+          <button class="filter-btn" data-filter="heroes">Heroes</button>
+          <button class="filter-btn" data-filter="villains">Villains</button>
+          <button class="filter-btn" data-filter="locations">Locations</button>
+          <button class="filter-btn" data-filter="items">Items</button>
+          <button class="filter-btn" data-filter="events">Events</button>
+          <button class="filter-btn" data-filter="planets">Planets</button>
+        </div>
+      </div>
+      <button id="randomNode">Random Discovery!</button>
+    </header>
+
+    <main>
+      <div id="treeContainer"></div>
+      <div id="detailPanel">
+        <button class="close-btn">&times;</button>
+        <div class="detail-content">
+          <h2 id="detailTitle"></h2>
+          <p id="detailDescription"></p>
+          <div id="comedicLine"></div>
+          <div id="connections"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="./js/app.js" onerror="console.error('Failed to load app.js')"></script>
+</body>
+</html>
